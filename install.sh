@@ -42,14 +42,14 @@ ncsdk_pkg=${ncsdk_archive%%.tar.gz}
 #fi
 
 # Create Required installation dirs
-sudo mkdir -p /opt/movidius
-sudo cp $ncsdk_archive /opt/movidius/ncsdk.tar.gz
+mkdir -p /opt/movidius
+cp $ncsdk_archive /opt/movidius/ncsdk.tar.gz
 cd /opt/movidius/
 
 # untar the new install and run the install script
-sudo tar zxvf ./ncsdk.tar.gz
-sudo rm -rf NCSDK
-sudo mv $ncsdk_pkg* NCSDK
+tar zxvf ./ncsdk.tar.gz
+rm -rf NCSDK
+mv $ncsdk_pkg* NCSDK
 cd /opt/movidius/NCSDK
 cp /tmp/ncsdk.conf .
 ./install-ncsdk.sh
@@ -59,9 +59,9 @@ cp /tmp/ncsdk.conf .
 
 # cleanup
 cd ..
-sudo rm ncsdk.tar.gz
+rm ncsdk.tar.gz
 #sudo rm -r NCSDK
-sudo rm -f /tmp/${ncsdk_archive}
+rm -f /tmp/${ncsdk_archive}
 
 
 
