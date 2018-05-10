@@ -3,25 +3,10 @@
 # download the file
 cp ncsdk.conf /tmp
 
-rm -f /tmp/ncsdk_redirector.txt
-
-if [ -f ncsdk_redirector.txt ]
-then
-	cp ncsdk_redirector.txt /tmp
-	cd /tmp
-else
-	cd /tmp
-	wget --no-cache http://ncs-forum-uploads.s3.amazonaws.com/ncsdk/ncsdk_01_12/ncsdk_redirector.txt
-fi
-
 download_filename=NCSDK-1.12.tar.gz
 
-# redirector is the url from redirector text file
-redirector=$(<ncsdk_redirector.txt)
-
-# ncsdk_link is the url with '\r' deleted if it exists
-# would probably be from editing in windows/dos
-ncsdk_link=$(echo "$redirector" | tr -d '\r')
+# ncsdk_link is the url
+ncsdk_link=https://software.intel.com/sites/default/files/managed/33/1b/NCSDK-1.12.00.01.tar.gz
 
 # download the payload from the redirector link
 # and save it the download_filename no matter what the original filename was
